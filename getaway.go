@@ -33,10 +33,10 @@ var pkg string
 var repo, vcs string
 
 func init() {
-	flag.StringVar(&listen, "listen", "localhost:8080", "bind address for HTTP server")
-	flag.StringVar(&pkg, "pkg", "", "package URL to redirect")
-	flag.StringVar(&repo, "repo", "", "path to repo")
-	flag.StringVar(&vcs, "vcs", "git", "type of repo (git, hg, svn, etc...)")
+	flag.StringVar(&listen, "listen", "localhost:8080", "bind `address` for HTTP server")
+	flag.StringVar(&pkg, "pkg", "", "`package` URL to redirect")
+	flag.StringVar(&repo, "repo", "", "path to `repo`")
+	flag.StringVar(&vcs, "vcs", "git", "`type` of repo (git, hg, svn, etc...)")
 }
 
 func main() {
