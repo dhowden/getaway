@@ -1,6 +1,7 @@
 # getaway
+[![Build Status](https://travis-ci.org/dhowden/getaway.svg?branch=master)](https://travis-ci.org/dhowden/getaway)
 
-Getaway is a simple tool for creating `go get` vanity URLs.
+Getaway is a simple HTTP server for creating `go get` vanity URLs.
 
 ## Usage
 
