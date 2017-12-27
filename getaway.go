@@ -8,7 +8,6 @@ package getaway
 
 import (
 	"net/http"
-	"path"
 	"strings"
 	"text/template"
 )
@@ -56,9 +55,11 @@ func (s Static) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 // go.yourdomain.com/reponame/subpkg -> https://github.com/youraccount/reponame
 type Dynamic struct {
 	// Root package URL to redirect.
+	// Must not include a trailing slash.
 	RootPkgPath string
 
 	// Root path to repos where package is located.
+	// Must not include a trailing slash.
 	RootRepoPath string
 
 	// Type of repository (git, hg, svn, etc...)
@@ -81,8 +82,8 @@ func (h Dynamic) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	name := cs[0]
 
 	Static{
-		Pkg:      path.Join(h.RootPkgPath, name),
-		RepoPath: path.Join(h.RootRepoPath, name),
+		Pkg:      h.RootPkgPath + "/" + name,
+		RepoPath: h.RootRepoPath + "/" + name,
 		RepoType: h.RepoType,
 	}.ServeHTTP(w, r)
 }
