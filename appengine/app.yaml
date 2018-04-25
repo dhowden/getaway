@@ -1,0 +1,11 @@
+application: # Your project ID
+version: 1
+runtime: go
+api_version: go1
+
+handlers:
+- url: /.*
+  script: _go_app
+
+includes:
+- env.yaml
